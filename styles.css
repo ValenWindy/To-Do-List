@@ -1,0 +1,145 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(to right, #4facfe 0%, #00f2fe 100%);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: #333;
+}
+
+.container {
+    background: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    width: 400px;
+    max-width: 90%;
+    text-align: center;
+}
+
+h1 {
+    margin-bottom: 20px;
+    font-size: 2em;
+    color: #4facfe;
+}
+
+form {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+form input {
+    flex: 1;
+    padding: 10px;
+    border: 2px solid #4facfe;
+    border-radius: 5px 0 0 5px;
+    outline: none;
+}
+
+form button {
+    padding: 10px;
+    border: 2px solid #4facfe;
+    background: #4facfe;
+    color: white;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    outline: none;
+}
+
+form button:hover {
+    background: #00f2fe;
+    border-color: #00f2fe;
+}
+
+input#search-task {
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 2px solid #4facfe;
+    border-radius: 5px;
+    width: calc(100% - 24px); /* Ancho del contenedor menos el padding */
+    outline: none;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    max-height: 300px; /* Limit the height of the task list */
+    overflow-y: auto; /* Enable vertical scroll if content exceeds the max height */
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+}
+
+li {
+    background: #f4f4f4;
+    padding: 10px;
+    border: 2px solid #4facfe;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background 0.3s ease, opacity 0.3s ease;
+    animation: fadeIn 0.5s;
+}
+
+li.completed {
+    text-decoration: line-through;
+    opacity: 0.6;
+}
+
+li:hover {
+    background: #e0f7ff;
+}
+
+li .actions {
+    display: flex;
+    gap: 10px;
+}
+
+li .delete, li .edit {
+    color: #dc3545;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+li .edit {
+    color: #28a745;
+}
+
+li .delete:hover {
+    color: #c82333;
+}
+
+li .edit:hover {
+    color: #218838;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+}
+
+li.fade-out {
+    animation: fadeOut 0.5s forwards;
+}
